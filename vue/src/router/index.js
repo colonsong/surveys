@@ -4,12 +4,14 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import DefaultLayout from '../components/DefaultLayout.vue'
 import Surveys from '../views/Surveys.vue'
+import store from "../store";
 
 const routes = [
   {
     path: '/',
     component: DefaultLayout,
     redirect: '/dashboard',
+    meta : {requiredAuth: true},
     children: [
       { path: 'dashboard', name:'Dashboard', component: Dashboard },
       { path: 'surveys', name:'Surveys', component: Surveys }
@@ -31,5 +33,14 @@ const router = createRouter({
   history: createWebHistory(),
   routes
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiredAuth && !store.state.user.token) {
+    next({name:'Login'})
+  } else {
+    next();
+  }
+
+})
 
 export default router
