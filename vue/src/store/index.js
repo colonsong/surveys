@@ -1,9 +1,13 @@
-const { createStore } = require("vuex");
+import { createStore } from "vuex";
 
-const store = createStore
 
 const store = createStore({
-  state: {},
+  state: {
+    user: {
+      data: { name : 'Colin'},
+      token: null
+    }
+  },
   getters: {},
   actions: {},
   mutators: {},
