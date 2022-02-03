@@ -3,6 +3,7 @@ import Dashboard from '../views/Dashboard.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import DefaultLayout from '../components/DefaultLayout.vue'
+import Surveys from '../views/Surveys.vue'
 
 const routes = [
   {
@@ -10,7 +11,8 @@ const routes = [
     component: DefaultLayout,
     redirect: '/dashboard',
     children: [
-      { path: 'dashboard', name:'Dashboard', component: Dashboard }
+      { path: 'dashboard', name:'Dashboard', component: Dashboard },
+      { path: 'surveys', name:'Surveys', component: Surveys }
     ]
   },
   {
