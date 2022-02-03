@@ -2,12 +2,16 @@ import { createRouter, createWebHistory } from "vue-router";
 import Dashboard from '../views/Dashboard.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+import DefaultLayout from '../components/DefaultLayout.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'Dashboard',
-    component: Dashboard
+    component: DefaultLayout,
+    redirect: '/dashboard',
+    children: [
+      { path: 'dashboard', name:'Dashboard', component: Dashboard }
+    ]
   },
   {
     path: '/login',
