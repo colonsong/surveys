@@ -2,13 +2,10 @@
 
 </template>
 
-<script>
-export default {
- name:'Dashboard'
-}
+<script setup>
 
 </script>
 
-<style scope>
+<style>
 </style>
 
